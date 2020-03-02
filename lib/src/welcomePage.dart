@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:SaudagarKaya/src/loginPage.dart';
 import 'package:SaudagarKaya/src/signup.dart';
+import 'package:SaudagarKaya/src/mainPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -57,6 +58,29 @@ class _WelcomePageState extends State<WelcomePage> {
         ),
         child: Text(
           'Register now',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      ),
+    );
+  }
+   Widget _mainMenuButton() {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MainPage()));
+          // Navigator.of(context).pushReplacementNamed(  "MainPage");
+
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 13),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          border: Border.all(color: Colors.white, width: 2),
+        ),
+        child: Text(
+          'Main Menu',
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
@@ -145,6 +169,10 @@ class _WelcomePageState extends State<WelcomePage> {
                   height: 20,
                 ),
                 _signUpButton(),
+                SizedBox(
+                  height: 20,
+                ),
+                _mainMenuButton(),
                 SizedBox(
                   height: 20,
                 ),
