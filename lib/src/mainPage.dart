@@ -114,7 +114,7 @@ class _MainPageState extends State<MainPage> {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          text: 'Main ',
+          text: 'Main 2 ',
           style: GoogleFonts.portLligatSans(
             textStyle: Theme.of(context).textTheme.display1,
             fontSize: 30,
@@ -133,46 +133,187 @@ class _MainPageState extends State<MainPage> {
 
   
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-            height: MediaQuery.of(context).size.height,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        flex: 3,
-                        child: SizedBox(),
-                      ),
-                      _title(),
-                      SizedBox(
-                        height: 50,
-                      ),
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     drawer: Drawer(
+  //         child: ListView(
+  //           padding: EdgeInsets.zero,
+  //           children: <Widget>[
+  //             DrawerHeader(
+  //               child: Text('Drawer Header'),
+  //               decoration: BoxDecoration(
+  //                 color: Colors.blue,
+  //               ),
+  //             ),
+  //             ListTile(
+  //               title: Text('Dashboard'),
+  //               onTap: () {
+  //                 // Update the state of the app.
+  //                 // ...
+  //               },
+  //             ),
+  //             ListTile(
+  //               title: Text('Trafic'),
+  //               onTap: () {
+  //                 // Update the state of the app.
+  //                 // ...
+  //               },
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     body: SingleChildScrollView(
+  //       child: Container(
+  //           height: MediaQuery.of(context).size.height,
+  //           child: Stack(
+  //             children: <Widget>[
+  //               Container(
+  //                 padding: EdgeInsets.symmetric(horizontal: 20),
+  //                 child: Column(
+  //                   crossAxisAlignment: CrossAxisAlignment.center,
+  //                   mainAxisAlignment: MainAxisAlignment.center,
+  //                   children: <Widget>[
+  //                     Expanded(
+  //                       flex: 3,
+  //                       child: SizedBox(),
+  //                     ),
+  //                     _title(),
+  //                     SizedBox(
+  //                       height: 50,
+  //                     ),
                      
-                      _submitButton(),
+  //                     _submitButton(),
                       
-                      _divider(),
-                      // _facebookButton(),
-                      Expanded(
-                        flex: 2,
-                        child: SizedBox(),
-                      ),
-                    ],
-                  ),
-                ),
+  //                     _divider(),
+  //                     // _facebookButton(),
+  //                     Expanded(
+  //                       flex: 2,
+  //                       child: SizedBox(),
+  //                     ),
+  //                   ],
+  //                 ),
+  //               ),
                
-              ],
-            ),
-          )
-        )
-      );
+  //             ],
+  //           ),
+  //         )
+  //       )
+  //     );
     
+  // }
+
+  Widget build(BuildContext context) {
+    int _act = 2;
+    return Scaffold(
+      appBar: AppBar(title: Text("Main Menu")),
+      body: Center(child: Text('My Page!')),
+      drawer: Drawer(
+
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            SizedBox(
+              height : 120.0, 
+              child  : new DrawerHeader(
+                  child  : Image.asset(
+                    'assets/images/logo.png',
+                    width: 300.0,
+                    height: 30.0,
+                    // fit: BoxFit.cover,
+                  ),
+                  decoration: new BoxDecoration(color: Colors.black),
+                  margin : EdgeInsets.zero,
+                  padding: EdgeInsets.zero
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.dashboard),
+                  title: Text('Dashboard'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.traffic),
+                  title: Text('Trafic'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Profile'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.group_work),
+                  title: Text('My Leads'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.card_membership),
+                  title: Text('Membership'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.watch),
+                  title: Text('Training'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.pages),
+                  title: Text('Copywriting'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.shop),
+                  title: Text('Shop'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.payment),
+                  title: Text('Invoice'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+           
+            
+            
+          ],
+        ),
+      ),
+    );
   }
 }

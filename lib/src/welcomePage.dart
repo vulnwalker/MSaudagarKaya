@@ -139,6 +139,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body:SingleChildScrollView(
         child:Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
