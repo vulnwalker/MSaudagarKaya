@@ -1,319 +1,222 @@
 import 'package:flutter/material.dart';
-import 'package:SaudagarKaya/src/signup.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flushbar/flushbar.dart';
-import 'Widget/bezierContainer.dart';
+import 'package:SaudagarKaya/ui/widgets/common_divider.dart';
+import 'package:SaudagarKaya/ui/widgets/common_scaffold.dart';
+import 'package:SaudagarKaya/ui/widgets/profile_tile.dart';
 
+import 'package:http/http.dart' as http;
+import 'dart:convert' as JSON;
+import 'package:SaudagarKaya/database/DatabaseHelper.dart';
+import 'package:SaudagarKaya/config.dart';
+import 'package:SaudagarKaya/utils/uidata.dart';
 
 class MainPage extends StatefulWidget {
-  final String title;
-
-  MainPage({Key key, this.title}) : super(key: key);
-
-  
-
+  BuildContext context;
   @override
-  _MainPageState createState() => _MainPageState();
+  MainPageState createState() {
+    return new MainPageState();
+  }
 }
 
-class _MainPageState extends State<MainPage> {
+class MainPageState extends State<MainPage> {
+  Size deviceSize;
+  String emailMember = "vulnwalker@getnada.com",namaMember = "Dashboard",teleponMember = "081223744803",referalEmail = "admin@saudagarkaya.com";
+  int saldoMember;
+  String jumlahPenukaran = "0";
+  String jumlahAbsen = "0";
+  ConfigClass configClass = new ConfigClass();
+  var databaseHelper = new  DatabaseHelper() ;
+
+ 
+  @override
+  void initState() {
+    super.initState();
+    (() async {
+        //  await getDataAccount();
+        setState(() {
+        });
+    })();
   
-  Widget _backButton() {
-    return InkWell(
-      onTap: () {
-        Navigator.pop(context);
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Row(
+  }
+  @override
+  void didChangeDependencies() {
+        (() async {
+        //  await getDataAccount();
+        setState(() {
+                  
+        });
+    })();
+    super.didChangeDependencies();
+    
+  }
+
+   //Column1
+  Widget MainPageColumn() => Container(
+        height: deviceSize.height * 0.24,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.black),
+            ProfileTile(
+              title: namaMember,
+              subtitle: emailMember,
             ),
-            Text('Back',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500))
+            SizedBox(
+              height: 10.0,
+            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: <Widget>[
+      
+            //     Container(
+            //       decoration: BoxDecoration(
+            //         borderRadius:
+            //             new BorderRadius.all(new Radius.circular(50.0)),
+            //         border: new Border.all(
+            //           color: Colors.black,
+            //           width: 4.0,
+            //         ),
+            //       ),
+            //       child: CircleAvatar(
+            //         backgroundImage: AssetImage("assets/logo.png"),
+            //         backgroundColor: Colors.black,
+            //         foregroundColor: Colors.black,
+            //         radius: 40.0,
+            //       ),
+            //     ),
+            //     // IconButton(
+            //     //   icon: Icon(Icons.call),
+            //     //   color: Colors.black,
+            //     //   onPressed: () {},
+            //     // ),
+            //   ],
+            // )
           ],
         ),
-      ),
-    );
-  }
+      );
 
+  //column2
 
-  Widget _submitButton() {
-    return GestureDetector(
-        onTap: () => 
-        Flushbar(
-                  title:  "Hey Ninja",
-                  message:  "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                  duration:  Duration(seconds: 3),              
-                )..show(context)
-        ,
-        child: new Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  alignment: Alignment.center,
-                  
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                            color: Colors.grey.shade200,
-                            offset: Offset(2, 4),
-                            blurRadius: 5,
-                            spreadRadius: 2)
-                      ],
-                      gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [Color(0xfffbb448), Color(0xfff7892b)])),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                )
-    );
-  }
+  //column3
+  Widget descColumn() => Container(
+        height: deviceSize.height * 0.13,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            child: Text(
+              "Dashboard Aplikasi Saudagar Kaya !",
+              style: TextStyle(fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+              maxLines: 3,
+              softWrap: true,
+            ),
+          ),
+        ),
+      );
+  //column4
+  Widget accountColumn() => Container(
+        height: deviceSize.height * 0.3,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ProfileTile(
+                  title: "Website",
+                  subtitle: "rm-rf.studio",
+                ),
+                ProfileTile(
+                  title: "Phone",
+                  subtitle: "+6281223744803",
+                ),
+                ProfileTile(
+                  title: "YouTube",
+                  subtitle: "youtube.com/vulnwalker",
+                ),
+              ],
+            ),
+           
+          ],
+        ),
+      );
 
-  Widget _divider() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Row(
+  Widget bodyData() { 
+    return SingleChildScrollView(
+      child: Column(
         children: <Widget>[
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                thickness: 1,
-              ),
-            ),
-          ),
-          Text('-'),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                thickness: 1,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
+          MainPageColumn(),
+          CommonDivider(),
+          // followColumn(deviceSize),
+          // CommonDivider(),
+          // infoColumn(deviceSize),
+          // CommonDivider(),
+          descColumn(),
+          CommonDivider(),
+          // accountColumn()
         ],
       ),
     );
   }
 
-  
-
-   Widget _title() {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-          text: 'Main 2 ',
-          style: GoogleFonts.portLligatSans(
-            textStyle: Theme.of(context).textTheme.display1,
-            fontSize: 30,
-            fontWeight: FontWeight.w700,
-            color: Color(0xffe46b10),
+  Widget _scaffold() => CommonScaffold(
+        appTitle: "Dashboard",
+        bodyData: bodyData(),
+        // showFAB: true,
+        showDrawer: true,
+        floatingIcon: Icons.edit,
+        eventFloatButton: (){
+          // AlertDialog dialog = new AlertDialog(
+          //               content: new Text("Reload Activity")
+          //             );
+          // showDialog(context: context,child: dialog);
+          Navigator.of(context).pushNamed(UIData.profileRoute);
+        },
+      );
+  Widget followColumn(Size deviceSize) => Container(
+      height: deviceSize.height * 0.13,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          ProfileTile(
+            title: "Telepon",
+            subtitle: teleponMember.toString(),
           ),
-          children: [
-            TextSpan(
-              text: 'Menu',
-              style: TextStyle(color: Colors.black, fontSize: 30),
-            ),
-            
-          ]),
-    );
-  }
-
-  
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     drawer: Drawer(
-  //         child: ListView(
-  //           padding: EdgeInsets.zero,
-  //           children: <Widget>[
-  //             DrawerHeader(
-  //               child: Text('Drawer Header'),
-  //               decoration: BoxDecoration(
-  //                 color: Colors.blue,
-  //               ),
-  //             ),
-  //             ListTile(
-  //               title: Text('Dashboard'),
-  //               onTap: () {
-  //                 // Update the state of the app.
-  //                 // ...
-  //               },
-  //             ),
-  //             ListTile(
-  //               title: Text('Trafic'),
-  //               onTap: () {
-  //                 // Update the state of the app.
-  //                 // ...
-  //               },
-  //             ),
-  //           ],
-  //         ),
-  //       ),
-  //     body: SingleChildScrollView(
-  //       child: Container(
-  //           height: MediaQuery.of(context).size.height,
-  //           child: Stack(
-  //             children: <Widget>[
-  //               Container(
-  //                 padding: EdgeInsets.symmetric(horizontal: 20),
-  //                 child: Column(
-  //                   crossAxisAlignment: CrossAxisAlignment.center,
-  //                   mainAxisAlignment: MainAxisAlignment.center,
-  //                   children: <Widget>[
-  //                     Expanded(
-  //                       flex: 3,
-  //                       child: SizedBox(),
-  //                     ),
-  //                     _title(),
-  //                     SizedBox(
-  //                       height: 50,
-  //                     ),
-                     
-  //                     _submitButton(),
-                      
-  //                     _divider(),
-  //                     // _facebookButton(),
-  //                     Expanded(
-  //                       flex: 2,
-  //                       child: SizedBox(),
-  //                     ),
-  //                   ],
-  //                 ),
-  //               ),
-               
-  //             ],
-  //           ),
-  //         )
-  //       )
-  //     );
-    
-  // }
-
-  Widget build(BuildContext context) {
-    int _act = 2;
-    return Scaffold(
-      appBar: AppBar(title: Text("Main Menu")),
-      body: Center(child: Text('My Page!')),
-      drawer: Drawer(
-
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            SizedBox(
-              height : 120.0, 
-              child  : new DrawerHeader(
-                  child  : Image.asset(
-                    'assets/images/logo.png',
-                    width: 300.0,
-                    height: 30.0,
-                    // fit: BoxFit.cover,
-                  ),
-                  decoration: new BoxDecoration(color: Colors.black),
-                  margin : EdgeInsets.zero,
-                  padding: EdgeInsets.zero
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.dashboard),
-                  title: Text('Dashboard'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.traffic),
-                  title: Text('Trafic'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text('Profile'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.group_work),
-                  title: Text('My Leads'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.card_membership),
-                  title: Text('Membership'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.watch),
-                  title: Text('Training'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.pages),
-                  title: Text('Copywriting'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.shop),
-                  title: Text('Shop'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.payment),
-                  title: Text('Invoice'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-           
-            
-            
-          ],
-        ),
+          ProfileTile(
+            title: "Penukaran",
+            subtitle: jumlahPenukaran.toString(),
+          ),
+          ProfileTile(
+            title: "Absen",
+            subtitle: jumlahAbsen,
+          ),
+       
+        ],
       ),
     );
+  Widget infoColumn(Size deviceSize) => Container(
+      height: deviceSize.height * 0.13,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          ProfileTile(
+            title: "Point",
+            subtitle: saldoMember.toString(),
+          ),
+          ProfileTile(
+            title: "Referal",
+            subtitle: referalEmail.toString(),
+          ),
+
+       
+        ],
+      ),
+    );
+
+  @override
+  Widget build(BuildContext context) {
+    // getDataAccount();
+    deviceSize = MediaQuery.of(context).size;
+    return _scaffold();
   }
+
 }
+

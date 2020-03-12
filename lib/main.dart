@@ -1,5 +1,7 @@
+import 'package:SaudagarKaya/src/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:SaudagarKaya/src/fragment/profilePage.dart';
 
 import 'src/welcomePage.dart';
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Saudagar Kaya',
       theme: ThemeData(
          primarySwatch: Colors.blue,
          textTheme:GoogleFonts.latoTextTheme(textTheme).copyWith(
@@ -20,6 +22,10 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: WelcomePage(),
+      routes: <String, WidgetBuilder>{
+        "profile": (BuildContext context) => Profile(),
+        "mainPage": (BuildContext context) => MainPage(),
+      },
     );
   }
 }

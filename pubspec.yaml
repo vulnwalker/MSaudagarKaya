@@ -19,6 +19,17 @@ dependencies:
   custom_navigation_drawer: "^0.0.1" 
   flushbar: "^1.9.1"
 
+  font_awesome_flutter:
+  rxdart:
+  flutter_masked_text:
+  validate: ^1.6.0
+  http: any
+  firebase_admob: ^0.5.2
+  share: 0.5.3
+  cached_network_image: ^2.0.0
+  path_provider: ^1.6.5
+  device_info: 0.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

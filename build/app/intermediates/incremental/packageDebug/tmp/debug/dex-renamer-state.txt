@@ -1,4 +1,7 @@
-#Sat Mar 07 22:24:16 WIB 2020
+#Thu Mar 12 09:01:16 WIB 2020
 base.0=/home/kszxpo/Development/Native/saudagarkaya/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=/home/kszxpo/MOBILE/MSaudagarKaya/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
