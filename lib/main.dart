@@ -1,3 +1,4 @@
+import 'package:SaudagarKaya/src/fragment/memberShipPage.dart';
 import 'package:SaudagarKaya/src/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       home: WelcomePage(),
       routes: <String, WidgetBuilder>{
         "profile": (BuildContext context) => Profile(),
+        "membership": (BuildContext context) => MemberShip(),
         "mainPage": (BuildContext context) => MainPage(),
       },
     );

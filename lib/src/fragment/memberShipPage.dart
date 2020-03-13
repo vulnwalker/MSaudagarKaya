@@ -9,15 +9,15 @@ import 'package:SaudagarKaya/database/DatabaseHelper.dart';
 import 'package:SaudagarKaya/config.dart';
 import 'package:SaudagarKaya/utils/uidata.dart';
 
-class Profile extends StatefulWidget {
+class MemberShip extends StatefulWidget {
   BuildContext context;
   @override
-  ProfileState createState() {
-    return new ProfileState();
+  MemberShipState createState() {
+    return new MemberShipState();
   }
 }
 
-class ProfileState extends State<Profile> {
+class MemberShipState extends State<MemberShip> {
   Size deviceSize;
   String emailMember = "vulnwalker@getnada.com",namaMember = "udin",teleponMember = "081223744803",referalEmail = "admin@saudagarkaya.com";
   int saldoMember;
@@ -26,37 +26,7 @@ class ProfileState extends State<Profile> {
   ConfigClass configClass = new ConfigClass();
   var databaseHelper = new  DatabaseHelper() ;
 
-  // void getDataAccount() async{
-  //   var dbClient = await databaseHelper.db;
-  //       List<Map> list = await dbClient.rawQuery('SELECT * FROM tabel_account');
-  //       namaMember = list[0]["nama"];
-  //       emailMember = list[0]["email"];
-  //       saldoMember = list[0]["saldo"];
-  //       teleponMember = list[0]["nomor_telepon"];
-  //       getLogUser();
-  // }
 
-  // void getLogUser()  {
-  //    http.post(configClass.getLogUser(), body: {"email" : emailMember}).then((response) {
-  //         print(response.body);
-  //         var extractdata = JSON.jsonDecode(response.body);
-  //         List dataResult;
-  //         List dataContent;
-  //         String err,cek;
-  //         dataResult = extractdata["result"];
-  //         err = dataResult[0]["err"];
-  //         cek = dataResult[0]["cek"];
-  //         dataContent = dataResult[0]["content"];
-  //         setState(() {
-  //            jumlahPenukaran = dataContent[0]["penukaran"];
-  //            jumlahAbsen = dataContent[0]["absen"];
-  //            referalEmail = dataContent[0]["referalEmail"];
-  //          });
-      
-         
-  //       });
-
-  // }
   @override
   void initState() {
     super.initState();
@@ -80,14 +50,14 @@ class ProfileState extends State<Profile> {
   }
 
    //Column1
-  Widget profileColumn() => Container(
+  Widget MemberShipColumn() => Container(
         height: deviceSize.height * 0.24,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ProfileTile(
-              title: namaMember,
-              subtitle: emailMember,
+              title: "My MemberShip",
+              subtitle: "",
             ),
             SizedBox(
               height: 10.0,
@@ -145,6 +115,24 @@ class ProfileState extends State<Profile> {
           ),
         ),
       );
+  Widget progresColumn() => Container(
+        decoration: BoxDecoration(
+            color: Colors.blueAccent,
+          ),
+        height: deviceSize.height * 0.13,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            child: Text(
+              "Progres Upgrade Member",
+              style: TextStyle(fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+              maxLines: 3,
+              softWrap: true,
+            ),
+          ),
+        ),
+      );
   //column4
   Widget accountColumn() => Container(
         height: deviceSize.height * 0.3,
@@ -177,22 +165,21 @@ class ProfileState extends State<Profile> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          profileColumn(),
+          progresColumn(),
           CommonDivider(),
-          followColumn(deviceSize),
+          komisiColumn(deviceSize),
           CommonDivider(),
           infoColumn(deviceSize),
           CommonDivider(),
           descColumn(),
           CommonDivider(),
-          // accountColumn()
         ],
       ),
     );
   }
 
   Widget _scaffold() => CommonScaffold(
-        appTitle: "Profile",
+        appTitle: "Membership",
         bodyData: bodyData(),
         showFAB: true,
         showDrawer: true,
@@ -202,32 +189,72 @@ class ProfileState extends State<Profile> {
           //               content: new Text("Reload Activity")
           //             );
           // showDialog(context: context,child: dialog);
-          Navigator.of(context).pushNamed(UIData.editProfileRoute);
+          Navigator.of(context).pushNamed(UIData.profileRoute);
         },
       );
-  Widget followColumn(Size deviceSize) => Container(
+
+  Widget komisiColumn(Size deviceSize) => Container(
       height: deviceSize.height * 0.13,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          ProfileTile(
-            title: "Telepon",
-            subtitle: teleponMember.toString(),
-          ),
-          ProfileTile(
-            title: "Penukaran",
-            subtitle: jumlahPenukaran.toString(),
-          ),
-          ProfileTile(
-            title: "Absen",
-            subtitle: jumlahAbsen,
-          ),
+          BoxTile("Profit", "Rp. 500.000", "Rp. 1.500.00"),
+          BoxTile("Penukaran", "Rp. 700.000", "Rp. 6.100.000"),
+          // BoxTile(
+          //   title: "Profit",
+          //   komisi: "Rp. 500.000",
+          //   omset: "Rp. 1.500.00",
+          // ),
+          // BoxTile(
+          //   title: "Penukaran",
+          //   komisi: "Rp. 700.000",
+          //   omset: "Rp. 6.100.000",
+          // ),
+
+       
+        ],
+      ),
+    );
+  Widget BoxTile (String title, String komisi, String omset) => Container(
+    decoration: BoxDecoration(
+              color: Colors.blueAccent,
+            ),
+      height: deviceSize.height * 0.13,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                title,
+                style: TextStyle(
+                    fontSize: 20.0, fontWeight: FontWeight.w700, color: Colors.black),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                komisi,
+                style: TextStyle(
+                    fontSize: 15.0, fontWeight: FontWeight.normal, color: Colors.black),
+              ),
+              Text(
+                omset,
+                style: TextStyle(
+                    fontSize: 15.0, fontWeight: FontWeight.normal, color: Colors.black),
+              ),
+            ],
+          )
+
+
        
         ],
       ),
     );
   Widget infoColumn(Size deviceSize) => Container(
       height: deviceSize.height * 0.13,
+      
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -252,5 +279,46 @@ class ProfileState extends State<Profile> {
     return _scaffold();
   }
 
+
 }
+
+// class BoxTile extends StatelessWidget {
+//   final title;
+//   final komisi;
+//   final omset;
+//   final textColor;
+//   BoxTile({this.title, this.komisi, this.omset, this.textColor = Colors.black});
+//   @override
+//   Widget build(BuildContext context) {
+//     var column = Column(
+      
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       decoration: BoxDecoration(
+//         color: Colors.deepPurple,
+//       ),
+//       children: <Widget>[
+//         Text(
+//           title,
+//           style: TextStyle(
+//               fontSize: 20.0, fontWeight: FontWeight.w700, color: textColor),
+//         ),
+//         SizedBox(
+//           height: 5.0,
+//         ),
+//         Text(
+//           komisi,
+//           style: TextStyle(
+//               fontSize: 15.0, fontWeight: FontWeight.normal, color: textColor),
+//         ),
+//         Text(
+//           omset,
+//           style: TextStyle(
+//               fontSize: 15.0, fontWeight: FontWeight.normal, color: textColor),
+//         ),
+//       ],
+//     );
+//     return column;
+//   }
+// }
+
 

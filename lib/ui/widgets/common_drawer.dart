@@ -78,7 +78,9 @@ class CommonDrawer extends StatelessWidget {
                   title: Text('Membership'),
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
+                  onTap: () { 
+                    Navigator.of(context).pushReplacementNamed("membership");
+                   }
               ),
             ),
             Card(
