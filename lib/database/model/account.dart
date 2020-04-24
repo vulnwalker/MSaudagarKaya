@@ -4,15 +4,24 @@ class Account {
   String _password;
   String _nama;
   String _nomor_telepon;
-  int _saldo;
+  String _lisensi;
+  String _nama_rekening;
+  String _nama_bank;
+  String _nomor_rekening;
+  int _saldo,_profit,_jumlah_barang;
   int _status;
-  Account(this._email, this._password, this._nama, this._nomor_telepon,this._saldo,this._status);
+  Account(this._email, this._password, this._nama, this._nomor_telepon,this._jumlah_barang,this._nama_bank,this._nomor_rekening, this._nama_rekening, this._lisensi, this._profit,this._status);
   Account.map(dynamic obj) {
     this._email = obj["email"];
-    this._nama = obj["password"];
-    this._password = obj["nama"];
+    this._password = obj["password"];
+    this._nama = obj["nama"];
     this._nomor_telepon = obj["nomor_telepon"];
-    this._saldo = obj["saldo"];
+    this._jumlah_barang = obj["jumlah_barang"];
+    this._nama_bank = obj["nama_bank"];
+    this._nomor_rekening = obj["nomor_rekening"];
+    this._nama_rekening = obj["nama_rekening"];
+    this._lisensi = obj["lisensi"];
+    this._profit = obj["profit"];
     this._status = obj["status"];
   }
   String get accountEmail => _email;
@@ -25,12 +34,17 @@ class Account {
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
 
-    map["email"] = accountEmail;
-    map["password"] = accountPassword;
-    map["nama"] = accountNama;
-    map["nomor_telepon"] = accountNomorTelepon;
-    map["saldo"] = accountSaldo;
-    map["status"] = accountStatus;
+    map["email"] = this._email;
+    map["password"] = this._password;
+    map["nama"] = this._nama;
+    map["nomor_telepon"] = this._nomor_telepon;
+    map["jumlah_barang"] = this._jumlah_barang;
+    map["nama_bank"] = this._nama_bank;
+    map["nomor_rekening"] = this._nomor_rekening;
+    map["nama_rekening"] = this._nama_rekening;
+    map["lisensi"] = this._lisensi;
+    map["profit"] = this._profit;
+    map["status"] = this._status;
     return map;
   }
   void setAccountId(int id) {

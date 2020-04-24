@@ -16,8 +16,13 @@ public final class GeneratedPluginRegistrant {
     ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);
       io.flutter.plugins.deviceinfo.DeviceInfoPlugin.registerWith(shimPluginRegistry.registrarFor("io.flutter.plugins.deviceinfo.DeviceInfoPlugin"));
       io.flutter.plugins.firebaseadmob.FirebaseAdMobPlugin.registerWith(shimPluginRegistry.registrarFor("io.flutter.plugins.firebaseadmob.FirebaseAdMobPlugin"));
+      com.benzneststudios.flutter_rounded_progress_bar.FlutterRoundedProgressBarPlugin.registerWith(shimPluginRegistry.registrarFor("com.benzneststudios.flutter_rounded_progress_bar.FlutterRoundedProgressBarPlugin"));
     flutterEngine.getPlugins().add(new io.flutter.plugins.pathprovider.PathProviderPlugin());
       io.flutter.plugins.share.SharePlugin.registerWith(shimPluginRegistry.registrarFor("io.flutter.plugins.share.SharePlugin"));
+    flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
     flutterEngine.getPlugins().add(new com.tekartik.sqflite.SqflitePlugin());
+    flutterEngine.getPlugins().add(new io.flutter.plugins.urllauncher.UrlLauncherPlugin());
+    flutterEngine.getPlugins().add(new io.flutter.plugins.videoplayer.VideoPlayerPlugin());
+    flutterEngine.getPlugins().add(new creativecreatorormaybenot.wakelock.WakelockPlugin());
   }
 }

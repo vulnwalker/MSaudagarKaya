@@ -1,9 +1,11 @@
+import 'package:SaudagarKaya/database/DatabaseHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:SaudagarKaya/ui/widgets/about_tile.dart';
 import 'package:SaudagarKaya/utils/uidata.dart';
 import 'package:flushbar/flushbar.dart';
 
 class CommonDrawer extends StatelessWidget {
+  var databaseHelper = new  DatabaseHelper() ;
   @override
   Widget build(BuildContext context) {
     int _act = 2;
@@ -44,11 +46,12 @@ class CommonDrawer extends StatelessWidget {
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
                   onTap: () {
-                      Flushbar(
-                      title:  "Trafic",
-                      message:  "Trafic Clicked",
-                      duration:  Duration(seconds: 3),              
-                      )   ..show(context);
+                     Navigator.of(context).pushReplacementNamed("kotak");
+                      // Flushbar(
+                      // title:  "Trafic",
+                      // message:  "Trafic Clicked",
+                      // duration:  Duration(seconds: 3),              
+                      // )   ..show(context);
                    }
               ),
             ),
@@ -69,7 +72,7 @@ class CommonDrawer extends StatelessWidget {
                   title: Text('My Leads'),
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
+                  onTap: () { Navigator.of(context).pushReplacementNamed("leadPage"); }
               ),
             ),
             Card(
@@ -98,7 +101,9 @@ class CommonDrawer extends StatelessWidget {
                   title: Text('Copywriting'),
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
+                  onTap: () { 
+                     Navigator.of(context).pushReplacementNamed("copyWritingPage");
+                   }
               ),
             ),
             Card(
@@ -107,7 +112,7 @@ class CommonDrawer extends StatelessWidget {
                   title: Text('Shop'),
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
+                  onTap: () { Navigator.of(context).pushReplacementNamed("produkPage");}
               ),
             ),
             Card(
@@ -117,6 +122,19 @@ class CommonDrawer extends StatelessWidget {
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
                   onTap: () { /* react to the tile being tapped */ }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  leading: Icon(Icons.power_settings_new),
+                  title: Text('Logout'),
+                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
+                  enabled: _act == 2,
+                  onTap: () { 
+                    var databaseHelper = new  DatabaseHelper() ;
+                    databaseHelper.deleteAccount();
+                    Navigator.pushReplacementNamed(context, "login");
+                  }
               ),
             ),
            

@@ -1,9 +1,18 @@
+
+import 'package:SaudagarKaya/database/DatabaseHelper.dart';
+import 'package:SaudagarKaya/database/model/account.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:SaudagarKaya/src/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import '../config.dart';
 import 'Widget/bezierContainer.dart';
+import 'dart:convert' as JSON;
 
+import 'mainPage.dart';
+ConfigClass configClass = new ConfigClass();
 class LoginPage extends StatefulWidget {
   LoginPage({Key key, this.title}) : super(key: key);
 
@@ -14,6 +23,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String email,password = "";
+  String deviceUniqueKey = "";
+  final TextEditingController _emailController = new TextEditingController();
+  final TextEditingController _passController = new TextEditingController();
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -35,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _entryField(String title, {bool isPassword = false}) {
+  Widget _entryFieldEmail(String title, {bool isPassword = false}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -49,6 +62,31 @@ class _LoginPageState extends State<LoginPage> {
             height: 10,
           ),
           TextField(
+              controller: this._emailController,
+              obscureText: isPassword,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  fillColor: Color(0xfff3f3f4),
+                  filled: true))
+        ],
+      ),
+    );
+  }
+  Widget _entryFieldPassword(String title, {bool isPassword = false}) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+              controller: this._passController,
               obscureText: isPassword,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -60,28 +98,94 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _submitButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey.shade200,
-                offset: Offset(2, 4),
-                blurRadius: 5,
-                spreadRadius: 2)
-          ],
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xfffbb448), Color(0xfff7892b)])),
-      child: Text(
-        'Login',
-        style: TextStyle(fontSize: 20, color: Colors.white),
-      ),
+    return
+    InkWell(
+      onTap: () {
+        
+        configClass.showLoading(context);
+        //"https://api.saudagarkaya.com/auth"
+        http.post(configClass.auth(), body: {"email":_emailController.text, "password": _passController.text, "deviceCode": deviceUniqueKey}).then((response) async {
+          configClass.closeLoading(context);
+          
+      
+          final jsonResponse = JSON.jsonDecode(response.body.toString());
+          String loginResponse ;
+          // Resp resp = new Resp.fromJson(jsonResponse);
+          var extractdata = JSON.jsonDecode(response.body);
+          List dataResult;
+          List dataContent;
+          String err,cek;
+          dataResult = extractdata["result"];
+          // err = dataResult[0]["err"];
+          // cek = dataResult[0]["cek"];
+          // dataContent = dataResult[0]["content"];
+          // Flushbar(
+          //             title:  "Response",
+          //             message:  dataResult[0]["content"]["nama"],
+          //             duration:  Duration(seconds: 15),              
+          //             )   ..show(context);
+
+          if(dataResult[0]["err"] == ''){
+            
+            var db = new DatabaseHelper();
+
+            
+            var dataAccount = new Account(
+              _emailController.text,
+              _passController.text,
+              dataResult[0]["content"]["nama"],
+              dataResult[0]["content"]["nomor_telepon"],
+              int.tryParse(dataResult[0]["content"]["jumlah_barang"]),
+              dataResult[0]["content"]["nama_bank"],
+              dataResult[0]["content"]["nomor_rekening"],
+              dataResult[0]["content"]["nama_rekening"],
+              dataResult[0]["content"]["lisensi"],
+              int.tryParse(dataResult[0]["content"]["profit"]),
+              1,
+            );
+            db.saveAccount(dataAccount);
+            print("Welcome "+ dataResult[0]["content"]["nama"].toString());
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setString('sessionEmail',_emailController.text);
+            Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MainPage()));
+
+          }else{
+            loginResponse = dataResult[0]["err"];
+            AlertDialog dialog = new AlertDialog(
+              content: new Text(loginResponse)
+            );
+            showDialog(context: context,child: dialog);
+          }
+
+        });
+      },
+      child:  Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 15),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.grey.shade200,
+                  offset: Offset(2, 4),
+                  blurRadius: 5,
+                  spreadRadius: 2)
+            ],
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xfffbb448), Color(0xfff7892b)])),
+        child: Text(
+          'Login',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      )
     );
+    
+    
+    
   }
 
   Widget _divider() {
@@ -179,19 +283,19 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(
             width: 10,
           ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SignUpPage()));
-            },
-            child: Text(
-              'Daftar',
-              style: TextStyle(
-                  color: Color(0xfff79c4f),
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600),
-            ),
-          )
+          // InkWell(
+          //   onTap: () {
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (context) => SignUpPage()));
+          //   },
+          //   child: Text(
+          //     'Daftar',
+          //     style: TextStyle(
+          //         color: Color(0xfff79c4f),
+          //         fontSize: 13,
+          //         fontWeight: FontWeight.w600),
+          //   ),
+          // )
         ],
       ),
     );
@@ -221,8 +325,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        _entryField("Email"),
-        _entryField("Password", isPassword: true),
+        _entryFieldEmail("Email"),
+        _entryFieldPassword("Password", isPassword: true),
       ],
     );
   }
@@ -261,7 +365,7 @@ class _LoginPageState extends State<LoginPage> {
                             style:
                                 TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
                       ),
-                      _divider(),
+                      // _divider(),
                       // _facebookButton(),
                       Expanded(
                         flex: 2,
@@ -270,11 +374,11 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: _createAccountLabel(),
-                ),
-                Positioned(top: 40, left: 0, child: _backButton()),
+                // Align(
+                //   alignment: Alignment.bottomCenter,
+                //   child: _createAccountLabel(),
+                // ),
+                // Positioned(top: 40, left: 0, child: _backButton()),
                 Positioned(
                     top: -MediaQuery.of(context).size.height * .15,
                     right: -MediaQuery.of(context).size.width * .4,

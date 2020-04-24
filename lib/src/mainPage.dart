@@ -57,7 +57,7 @@ class MainPageState extends State<MainPage> {
           children: <Widget>[
             ProfileTile(
               title: namaMember,
-              subtitle: emailMember,
+              subtitle: "",
             ),
             SizedBox(
               height: 10.0,

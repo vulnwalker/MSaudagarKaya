@@ -5,54 +5,37 @@ class ConfigClass {
   String hostName ;
   
   String getHostName(){
-    this.hostName = "http://api.saudagarkaya.com/";
+    this.hostName = "https://api.saudagarkaya.com/";
     return this.hostName;
   }
   String auth(){
     return getHostName()+"auth";
   }
   String syncData(){
-    return getHostName()+"member/sync";
+    return getHostName()+"member/info";
   }
-  String getLogUser(){
-    return getHostName()+"member/log";
+  String memberCommision(){
+    return getHostName()+"member/membership";
+  }
+  String produkList(){
+    return getHostName()+"produk";
+  }
+  String produkDetail(){
+    return getHostName()+"produk/detail";
+  }
+  String copyWritingList(){
+    return getHostName()+"copyWriting";
+  }
+  String leadList(){
+    return getHostName()+"leads";
   }
   String register(){
     return getHostName()+"member/add";
   }
-  String editProfile(){
-    return getHostName()+"member/update";
+  String profile(){
+    return getHostName()+"member/sync";
   }
-  String gainedPoint(){
-    return getHostName()+"member/gained_point";
-  }
-  String daftarTukarPoint(){
-    return getHostName()+"daftar/point";
-  }
-  String daftarPayment(){
-    return getHostName()+"daftar/payment";
-  }
-  String daftarBerita(){
-    return getHostName()+"daftar/news";
-  }
-  String getDetailBerita(){
-    return getHostName()+"berita/detail";
-  }
-  String absenHarian(){
-    return getHostName()+"task/absen";
-  }
-  String requestAds(){
-    return getHostName()+"ads";
-  }
-  String gameReward(){
-    return getHostName()+"task/game";
-  }
-  String getReward(){
-    return getHostName()+"ads/reward";
-  }
-  String tradePoint(){
-    return getHostName()+"point/trade";
-  }
+  
   var loadingScreen = new ProgressHUD(
       backgroundColor: Colors.black12,
       color: Colors.white,

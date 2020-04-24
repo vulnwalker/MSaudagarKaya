@@ -12,8 +12,8 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:8:5-66
-14-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:8:22-64
+14-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:8:5-66
+14-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:8:22-64
 15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 15-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:24:5-79
 15-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:24:22-76
@@ -39,39 +39,39 @@
 24-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:32:22-76
 25
 26    <application
-26-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:9:5-30:19
+26-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:9:5-30:19
 27        android:name="io.flutter.app.FlutterApplication"
-27-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:10:9-57
+27-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:10:9-57
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 28-->[androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/0a271e99b6771ad4a84318244d532fb7/core-1.0.0/AndroidManifest.xml:22:18-86
 29        android:debuggable="true"
 30        android:icon="@mipmap/ic_launcher"
-30-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:12:9-43
+30-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:12:9-43
 31        android:label="saudagarkaya" >
-31-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:11:9-37
+31-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:11:9-37
 32        <activity
-32-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:13:9-24:20
+32-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:13:9-24:20
 33            android:name="com.example.saudagarkaya.MainActivity"
-33-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:14:13-41
+33-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:14:13-41
 34            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-34-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:17:13-163
+34-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:17:13-163
 35            android:hardwareAccelerated="true"
-35-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:18:13-47
+35-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:18:13-47
 36            android:launchMode="singleTop"
-36-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:15:13-43
+36-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:15:13-43
 37            android:theme="@style/LaunchTheme"
-37-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:16:13-47
+37-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:16:13-47
 38            android:windowSoftInputMode="adjustResize" >
-38-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:19:13-55
+38-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:19:13-55
 39            <intent-filter>
-39-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:20:13-23:29
+39-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:20:13-23:29
 40                <action android:name="android.intent.action.MAIN" />
-40-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:21:17-68
-40-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:21:25-66
+40-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:21:17-68
+40-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:21:25-66
 41
 42                <category android:name="android.intent.category.LAUNCHER" />
-42-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:22:17-76
-42-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:22:27-74
+42-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:22:17-76
+42-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:22:27-74
 43            </intent-filter>
 44        </activity>
 45        <!--
@@ -79,143 +79,152 @@
 47             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 48        -->
 49        <meta-data
-49-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:27:9-29:33
+49-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:27:9-29:33
 50            android:name="flutterEmbedding"
-50-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:28:13-44
+50-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:28:13-44
 51            android:value="2" />
-51-->/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/AndroidManifest.xml:29:13-30
+51-->/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/AndroidManifest.xml:29:13-30
 52
-53        <receiver
-53-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:29:9-33:20
-54            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-54-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:30:13-85
-55            android:enabled="true"
-55-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:31:13-35
-56            android:exported="false" >
-56-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:32:13-37
-57        </receiver>
+53        <activity
+53-->[:url_launcher] /home/kszxpo/MOBILE/saudagarkaya/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+54            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+54-->[:url_launcher] /home/kszxpo/MOBILE/saudagarkaya/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
+55            android:exported="false"
+55-->[:url_launcher] /home/kszxpo/MOBILE/saudagarkaya/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+56            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+56-->[:url_launcher] /home/kszxpo/MOBILE/saudagarkaya/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+57
 58        <receiver
-58-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:34:9-42:20
-59            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-59-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:35:13-100
+58-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:29:9-33:20
+59            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+59-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:30:13-85
 60            android:enabled="true"
-60-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:36:13-35
-61            android:exported="true"
-61-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:37:13-36
-62            android:permission="android.permission.INSTALL_PACKAGES" >
-62-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:38:13-69
-63            <intent-filter>
-63-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:39:13-41:29
-64                <action android:name="com.android.vending.INSTALL_REFERRER" />
-64-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:40:17-79
-64-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:40:25-76
-65            </intent-filter>
-66        </receiver>
-67
-68        <service
-68-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:44:9-47:40
-69            android:name="com.google.android.gms.measurement.AppMeasurementService"
-69-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:45:13-84
-70            android:enabled="true"
-70-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:46:13-35
-71            android:exported="false" />
-71-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:47:13-37
-72        <service
-72-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:48:9-52:72
-73            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-73-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:49:13-87
-74            android:enabled="true"
-74-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:50:13-35
-75            android:exported="false"
-75-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:51:13-37
-76            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
-76-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:52:13-69
-77        <activity
-77-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:29:9-33:64
-78            android:name="com.google.android.gms.ads.AdActivity"
-78-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:30:13-65
-79            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-79-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:31:13-122
+60-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:31:13-35
+61            android:exported="false" >
+61-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:32:13-37
+62        </receiver>
+63        <receiver
+63-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:34:9-42:20
+64            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+64-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:35:13-100
+65            android:enabled="true"
+65-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:36:13-35
+66            android:exported="true"
+66-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:37:13-36
+67            android:permission="android.permission.INSTALL_PACKAGES" >
+67-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:38:13-69
+68            <intent-filter>
+68-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:39:13-41:29
+69                <action android:name="com.android.vending.INSTALL_REFERRER" />
+69-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:40:17-79
+69-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:40:25-76
+70            </intent-filter>
+71        </receiver>
+72
+73        <service
+73-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:44:9-47:40
+74            android:name="com.google.android.gms.measurement.AppMeasurementService"
+74-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:45:13-84
+75            android:enabled="true"
+75-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:46:13-35
+76            android:exported="false" />
+76-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:47:13-37
+77        <service
+77-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:48:9-52:72
+78            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+78-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:49:13-87
+79            android:enabled="true"
+79-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:50:13-35
 80            android:exported="false"
-80-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:32:13-37
-81            android:theme="@android:style/Theme.Translucent" />
-81-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:33:13-61
-82
-83        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
-83-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:35:9-39:19
-83-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:35:18-89
-84            <meta-data
-84-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:36:13-38:85
-85                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-85-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:37:17-96
-86                android:value="com.google.firebase.components.ComponentRegistrar" />
-86-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:38:17-82
-87        </service>
-88
-89        <receiver
-89-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:41:9-50:20
-90            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-90-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:42:13-78
-91            android:exported="true"
-91-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:43:13-36
-92            android:permission="com.google.android.c2dm.permission.SEND" >
-92-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:44:13-73
-93            <intent-filter>
-93-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:45:13-49:29
-94                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-94-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:46:17-81
-94-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:46:25-78
-95
-96                <category android:name="com.example.saudagarkaya" />
-96-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:48:17-61
-96-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:48:27-58
-97            </intent-filter>
-98        </receiver>
-99        <!--
-100             FirebaseInstanceIdService performs security checks at runtime,
-101             no need for explicit permissions despite exported="true"
-102        -->
-103        <service
-103-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:56:9-62:19
-104            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
-104-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:57:13-77
-105            android:exported="true" >
-105-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:58:13-36
-106            <intent-filter android:priority="-500" >
-106-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:59:13-61:29
-106-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:59:28-51
-107                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-107-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:60:17-80
-107-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:60:25-77
-108            </intent-filter>
-109        </service>
-110
-111        <provider
-111-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:8:9-12:39
-112            android:name="com.google.firebase.provider.FirebaseInitProvider"
-112-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:9:13-77
-113            android:authorities="com.example.saudagarkaya.firebaseinitprovider"
-113-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:10:13-72
-114            android:exported="false"
-114-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:11:13-37
-115            android:initOrder="100" />
-115-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:12:13-36
-116
-117        <activity
-117-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:23:9-26:75
-118            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-118-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:24:13-79
+80-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:51:13-37
+81            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+81-->[com.google.firebase:firebase-analytics:15.0.2] /root/.gradle/caches/transforms-2/files-2.1/9679f09a61a4b7e6c06660bff1385a58/jetified-firebase-analytics-15.0.2/AndroidManifest.xml:52:13-69
+82        <activity
+82-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:29:9-33:64
+83            android:name="com.google.android.gms.ads.AdActivity"
+83-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:30:13-65
+84            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+84-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:31:13-122
+85            android:exported="false"
+85-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:32:13-37
+86            android:theme="@android:style/Theme.Translucent" />
+86-->[com.google.android.gms:play-services-ads-lite:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/12f28848b8fb7a105576e1f9832e3d7e/jetified-play-services-ads-lite-15.0.1/AndroidManifest.xml:33:13-61
+87
+88        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+88-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:35:9-39:19
+88-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:35:18-89
+89            <meta-data
+89-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:36:13-38:85
+90                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+90-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:37:17-96
+91                android:value="com.google.firebase.components.ComponentRegistrar" />
+91-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:38:17-82
+92        </service>
+93
+94        <receiver
+94-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:41:9-50:20
+95            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+95-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:42:13-78
+96            android:exported="true"
+96-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:43:13-36
+97            android:permission="com.google.android.c2dm.permission.SEND" >
+97-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:44:13-73
+98            <intent-filter>
+98-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:45:13-49:29
+99                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+99-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:46:17-81
+99-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:46:25-78
+100
+101                <category android:name="com.example.saudagarkaya" />
+101-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:48:17-61
+101-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:48:27-58
+102            </intent-filter>
+103        </receiver>
+104        <!--
+105             FirebaseInstanceIdService performs security checks at runtime,
+106             no need for explicit permissions despite exported="true"
+107        -->
+108        <service
+108-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:56:9-62:19
+109            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+109-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:57:13-77
+110            android:exported="true" >
+110-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:58:13-36
+111            <intent-filter android:priority="-500" >
+111-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:59:13-61:29
+111-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:59:28-51
+112                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+112-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:60:17-80
+112-->[com.google.firebase:firebase-iid:15.1.0] /root/.gradle/caches/transforms-2/files-2.1/f4758488ffd8e3ffe21eab09a26ab451/jetified-firebase-iid-15.1.0/AndroidManifest.xml:60:25-77
+113            </intent-filter>
+114        </service>
+115
+116        <provider
+116-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:8:9-12:39
+117            android:name="com.google.firebase.provider.FirebaseInitProvider"
+117-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:9:13-77
+118            android:authorities="com.example.saudagarkaya.firebaseinitprovider"
+118-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:10:13-72
 119            android:exported="false"
-119-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:25:13-37
-120            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-120-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:26:13-72
+119-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:11:13-37
+120            android:initOrder="100" />
+120-->[com.google.firebase:firebase-common:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/06debfba94ef2ed0a5d00d7fbf51bfa6/jetified-firebase-common-15.0.1/AndroidManifest.xml:12:13-36
 121
-122        <meta-data
-122-->[com.google.android.gms:play-services-basement:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/913f33b0568f6995a6f6da26ad1db0c9/jetified-play-services-basement-15.0.1/AndroidManifest.xml:23:9-25:69
-123            android:name="com.google.android.gms.version"
-123-->[com.google.android.gms:play-services-basement:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/913f33b0568f6995a6f6da26ad1db0c9/jetified-play-services-basement-15.0.1/AndroidManifest.xml:24:13-58
-124            android:value="@integer/google_play_services_version" />
-124-->[com.google.android.gms:play-services-basement:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/913f33b0568f6995a6f6da26ad1db0c9/jetified-play-services-basement-15.0.1/AndroidManifest.xml:25:13-66
-125    </application>
+122        <activity
+122-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:23:9-26:75
+123            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+123-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:24:13-79
+124            android:exported="false"
+124-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:25:13-37
+125            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+125-->[com.google.android.gms:play-services-base:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/57188288547d5634c49a98309f8c2953/jetified-play-services-base-15.0.1/AndroidManifest.xml:26:13-72
 126
-127</manifest>
+127        <meta-data
+127-->[com.google.android.gms:play-services-basement:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/913f33b0568f6995a6f6da26ad1db0c9/jetified-play-services-basement-15.0.1/AndroidManifest.xml:23:9-25:69
+128            android:name="com.google.android.gms.version"
+128-->[com.google.android.gms:play-services-basement:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/913f33b0568f6995a6f6da26ad1db0c9/jetified-play-services-basement-15.0.1/AndroidManifest.xml:24:13-58
+129            android:value="@integer/google_play_services_version" />
+129-->[com.google.android.gms:play-services-basement:15.0.1] /root/.gradle/caches/transforms-2/files-2.1/913f33b0568f6995a6f6da26ad1db0c9/jetified-play-services-basement-15.0.1/AndroidManifest.xml:25:13-66
+130    </application>
+131
+132</manifest>

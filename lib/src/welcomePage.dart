@@ -3,6 +3,7 @@ import 'package:SaudagarKaya/src/loginPage.dart';
 import 'package:SaudagarKaya/src/signup.dart';
 import 'package:SaudagarKaya/src/mainPage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
@@ -11,6 +12,15 @@ class WelcomePage extends StatefulWidget {
 
   @override
   _WelcomePageState createState() => _WelcomePageState();
+}
+_launchURL() async {
+  const url = 'https://saudagarkaya.com/register/';
+  await launch(url);
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }
 
 class _WelcomePageState extends State<WelcomePage> {
@@ -45,8 +55,10 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget _signUpButton() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        // Navigator.push(
+        //     context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        // _launchURL();
+        launch('https://saudagarkaya.com/register/');
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -173,10 +185,10 @@ class _WelcomePageState extends State<WelcomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                _mainMenuButton(),
-                SizedBox(
-                  height: 20,
-                ),
+                // _mainMenuButton(),
+                // SizedBox(
+                //   height: 20,
+                // ),
                 // _label()
               ],
             ),

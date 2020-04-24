@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/home/kszxpo/MOBILE/MSaudagarKaya/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/kszxpo/MOBILE/saudagarkaya/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
+                {
+                    "source": "/home/kszxpo/MOBILE/saudagarkaya/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "347"
+                    },
+                    "to": {
+                        "startLines": "89",
+                        "startColumns": "4",
+                        "startOffsets": "6852",
+                        "endLines": "93",
+                        "endColumns": "12",
+                        "endOffsets": "7144"
+                    }
+                },
                 {
                     "source": "/root/.gradle/caches/transforms-2/files-2.1/ae13efc3dbae5c9ee58d4933337fcd21/coordinatorlayout-1.0.0/res/values/values.xml",
                     "from": {
@@ -90,25 +109,6 @@
                         "startOffsets": "6425,6467,6544,6582,6621,6674,6742",
                         "endColumns": "41,76,37,38,52,67,38",
                         "endOffsets": "6462,6539,6577,6616,6669,6737,6776"
-                    }
-                },
-                {
-                    "source": "/home/kszxpo/MOBILE/MSaudagarKaya/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "347"
-                    },
-                    "to": {
-                        "startLines": "89",
-                        "startColumns": "4",
-                        "startOffsets": "6852",
-                        "endLines": "93",
-                        "endColumns": "12",
-                        "endOffsets": "7144"
                     }
                 },
                 {

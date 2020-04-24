@@ -31,7 +31,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
     // When creating the db, create the table
     await db.execute(
-        "CREATE TABLE tabel_account (id INTEGER PRIMARY KEY, email text, password text,nama text,nomor_telepon text,saldo INTEGER,status INTEGER)");
+        "CREATE TABLE tabel_account (id INTEGER PRIMARY KEY, email text, password text,profit INTEGER,nama text,nomor_telepon text,jumlah_barang INTEGER,nama_bank text,nomor_rekening text,nama_rekening text,lisensi text,status INTEGER)");
     // await db.execute(
     //     "CREATE TABLE info_account (id INTEGER PRIMARY KEY, jumlah_trade_point INTEGER, jumlah_absen int,jam )");
     //     print("database created");
@@ -53,10 +53,10 @@ class DatabaseHelper {
     List<Map> list = await dbClient.rawQuery('SELECT * FROM tabel_account');
     List<Account> employees = new List();
     for (int i = 0; i < list.length; i++) {
-      var account =
-          new Account(list[i]["email"], list[i]["password"], list[i]["nama"], list[i]["nomor_telepon"], list[i]["saldo"], list[i]["status"] );
-      account.setAccountId(list[i]["id"]);
-      employees.add(account);
+      // var account =
+      //     new Account(list[i]["email"], list[i]["password"], list[i]["nama"], list[i]["nomor_telepon"], list[i]["saldo"], list[i]["status"] );
+      // account.setAccountId(list[i]["id"]);
+      // employees.add(account);
     }
     print(employees.length);
     return employees;
@@ -80,4 +80,6 @@ class DatabaseHelper {
     int res =   await dbClient.update("tabel_account", account.toMap());
     return res > 0 ? true : false;
   }
+
+  void execute(String s) {}
 }

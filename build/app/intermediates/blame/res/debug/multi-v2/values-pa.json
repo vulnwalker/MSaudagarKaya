@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/kszxpo/MOBILE/MSaudagarKaya/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-pa/values-pa.xml",
+            "outputFile": "/home/kszxpo/MOBILE/saudagarkaya/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-pa/values-pa.xml",
             "map": [
                 {
                     "source": "/root/.gradle/caches/transforms-2/files-2.1/0a271e99b6771ad4a84318244d532fb7/core-1.0.0/res/values-pa/values-pa.xml",
