@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         "produkPage": (BuildContext context) => ProdukPage(),
         "copyWritingPage": (BuildContext context) => CopyWriting(),
         "leadPage": (BuildContext context) => Lead(),
-        // "kotak": (BuildContext context) => VideoPlayerApp(),
+        "kotak": (BuildContext context) => ShoppingWidgets(),
       },
     );
   }
