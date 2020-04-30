@@ -46,7 +46,7 @@ class CommonDrawer extends StatelessWidget {
                   subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
                   enabled: _act == 2,
                   onTap: () {
-                     Navigator.of(context).pushReplacementNamed("kotak");
+                     Navigator.of(context).pushReplacementNamed("cartPage");
                       // Flushbar(
                       // title:  "Trafic",
                       // message:  "Trafic Clicked",

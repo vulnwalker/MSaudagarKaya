@@ -33,7 +33,8 @@ class CommonScaffold extends StatelessWidget {
       });
 
   Widget myBottomBar() => new BottomAppBar(
-        // shape: CircularNotchedRectangle(),
+        clipBehavior: Clip.antiAlias,
+        shape: CircularNotchedRectangle(),
         child: Ink(
           height: 50.0,
           decoration: new BoxDecoration(
@@ -47,10 +48,10 @@ class CommonScaffold extends StatelessWidget {
                 child: new InkWell(
                   radius: 10.0,
                   splashColor: Colors.yellow,
-                  onTap: () {},
+                  // onTap: () {},
                   child: Center(
                     child: new Text(
-                      "ADD TO WISHLIST",
+                      "ADD TO CART",
                       style: new TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold,
@@ -65,7 +66,7 @@ class CommonScaffold extends StatelessWidget {
               SizedBox(
                 height: double.infinity,
                 child: new InkWell(
-                  onTap: () {},
+                  // onTap: () {},
                   radius: 10.0,
                   splashColor: Colors.yellow,
                   child: Center(

@@ -1,4 +1,5 @@
 import 'package:SaudagarKaya/CheckRoute.dart';
+import 'package:SaudagarKaya/src/fragment/cartPage.dart';
 import 'package:SaudagarKaya/src/fragment/copyWiritingPage.dart';
 import 'package:SaudagarKaya/src/fragment/kotak.dart';
 import 'package:SaudagarKaya/src/fragment/leadPage.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         "copyWritingPage": (BuildContext context) => CopyWriting(),
         "leadPage": (BuildContext context) => Lead(),
         "kotak": (BuildContext context) => ShoppingWidgets(),
+        "cartPage": (BuildContext context) => CartPage(),
       },
     );
   }

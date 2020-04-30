@@ -6,12 +6,15 @@ class CustomFloat extends StatelessWidget {
   final Widget builder;
   final VoidCallback qrCallback;
   final isMini;
+  final tag;
 
-  CustomFloat({this.icon, this.builder, this.qrCallback, this.isMini = false});
+  CustomFloat({this.icon, this.builder, this.qrCallback, this.isMini = false, this.tag});
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag : tag,
+      clipBehavior: Clip.antiAlias,
       mini: isMini,
       onPressed: qrCallback,
       child: Ink(

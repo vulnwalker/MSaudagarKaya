@@ -103,45 +103,53 @@ class ShoppingActionState extends State<ShoppingAction> {
         ],
       );
 
-  // Widget quantityCard() {
-  //   CartBloc cartBloc = CartBloc(widget.product);
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: <Widget>[
-  //       Text(
-  //         "Sizes",
-  //         style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
-  //       ),
-  //       SizedBox(
-  //         height: 10.0,
-  //       ),
-  //       Row(
-  //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //         children: <Widget>[
-  //           CustomFloat(
-  //             isMini: true,
-  //             icon: FontAwesomeIcons.minus,
-  //             qrCallback: () => cartBloc.subtractionController.add(true),
-  //           ),
-  //           StreamBuilder<int>(
-  //             stream: cartBloc.getCount,
-  //             initialData: 0,
-  //             builder: (context, snapshot) => Text(
-  //                   snapshot.data.toString(),
-  //                   style:
-  //                       TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
-  //                 ),
-  //           ),
-  //           CustomFloat(
-  //             isMini: true,
-  //             icon: FontAwesomeIcons.plus,
-  //             qrCallback: () => cartBloc.additionalController.add(true),
-  //           ),
-  //         ],
-  //       )
-  //     ],
-  //   );
-  // }
+  Widget quantityCard() {
+    // CartBloc cartBloc = CartBloc(widget.product);
+   
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          "Sizes",
+          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            CustomFloat(
+              isMini: true,
+              icon: FontAwesomeIcons.minus,
+              // qrCallback: () => cartBloc.subtractionController.add(true),
+            ),
+            // StreamBuilder<int>(
+            //   // stream: cartBloc.getCount,
+            //   initialData: 0,
+            //   builder: (context, snapshot) => Text(
+            //         // snapshot.data.toString(),
+            //         "10",
+            //         style:
+            //             TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
+            //       ),
+            // ),
+            Text(
+                    // snapshot.data.toString(),
+                    "10",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
+                  ),
+            CustomFloat(
+              isMini: true,
+              icon: FontAwesomeIcons.plus,
+              // qrCallback: () => cartBloc.additionalController.add(true),
+            ),
+          ],
+        )
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +166,7 @@ class ShoppingActionState extends State<ShoppingAction> {
         SizedBox(
           height: 5.0,
         ),
-        // quantityCard(),
+        quantityCard(),
         SizedBox(
           height: 20.0,
         ),

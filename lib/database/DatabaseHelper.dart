@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io' as io;
 
 import 'package:SaudagarKaya/database/model/account.dart';
+import 'package:SaudagarKaya/database/model/cart.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -32,6 +33,8 @@ class DatabaseHelper {
     // When creating the db, create the table
     await db.execute(
         "CREATE TABLE tabel_account (id INTEGER PRIMARY KEY, email text, password text,profit INTEGER,nama text,nomor_telepon text,jumlah_barang INTEGER,nama_bank text,nomor_rekening text,nama_rekening text,lisensi text,status INTEGER)");
+    await db.execute(
+        "CREATE TABLE cart (id INTEGER PRIMARY KEY, id_produk text, harga INTEGER, jumlah INTEGER, sub_total INTEGER )");
     // await db.execute(
     //     "CREATE TABLE info_account (id INTEGER PRIMARY KEY, jumlah_trade_point INTEGER, jumlah_absen int,jam )");
     //     print("database created");
@@ -40,6 +43,11 @@ class DatabaseHelper {
   Future<int> saveAccount(Account account) async {
     var dbClient = await db;
     int res = await dbClient.insert("tabel_account", account.toMap());
+    return res;
+  }
+  Future<int> saveCart(Cart cart) async {
+    var dbClient = await db;
+    int res = await dbClient.insert("cart", cart.toMap());
     return res;
   }
   Future<int> sqlInsert(tableName,list) async {
@@ -82,4 +90,5 @@ class DatabaseHelper {
   }
 
   void execute(String s) {}
+
 }

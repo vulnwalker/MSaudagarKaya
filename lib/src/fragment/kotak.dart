@@ -139,19 +139,17 @@ class ShoppingWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     deviceSize = MediaQuery.of(context).size;
     return
-    
     CommonScaffold(
             backGroundColor: Colors.grey.shade100,
             actionFirstIcon: null,
             appTitle: "Product Detail",
             showFAB: true,
             scaffoldKey: _scaffoldState,
-            showDrawer: false,
+            showDrawer: true,
             centerDocked: true,
             floatingIcon: Icons.add_shopping_cart,
             bodyData: bodyData(),
             showBottomNav: true,
-        ) 
-    ;
+        ) ;
   }
 }
