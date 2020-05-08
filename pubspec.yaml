@@ -53,6 +53,9 @@ flutter:
     - assets/images/calendar.png
     - assets/images/clock.png
     - assets/logo.png
+    - assets/Logo_BRI.png
+    - assets/Logo_BCA.png
+    - assets/Logo_Mandiri.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

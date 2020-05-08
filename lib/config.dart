@@ -35,6 +35,21 @@ class ConfigClass {
   String profile(){
     return getHostName()+"member/sync";
   }
+  String getProvinsi(){
+    return getHostName()+"ongkir/getProvinsi";
+  }
+  String getKota(){
+    return getHostName()+"ongkir/getKota";
+  }
+  String getService(){
+    return getHostName()+"ongkir/getService";
+  }
+  String getWeight(){
+    return getHostName()+"produk/getWeight";
+  }
+  String checkout(){
+    return getHostName()+"checkout";
+  }
   
   var loadingScreen = new ProgressHUD(
       backgroundColor: Colors.black12,

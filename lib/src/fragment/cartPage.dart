@@ -1,6 +1,7 @@
 
 import 'package:SaudagarKaya/config.dart';
 import 'package:SaudagarKaya/database/DatabaseHelper.dart';
+import 'package:SaudagarKaya/src/fragment/checkoutPage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -98,7 +99,7 @@ Future<Column> getDataCart() async {
                               
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                
+                              
                                 SizedBox(
                                   height: 6,
                                 ),
@@ -148,6 +149,26 @@ Future<Column> getDataCart() async {
                                         },
                                         child: Icon(
                                           Icons.add_circle,
+                                          color: Colors.white,
+                                          size: 30,
+                                        )),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 60),
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey,
+                                        borderRadius: BorderRadius.circular(20)),
+                                    child: GestureDetector(
+                                        onTap: ()async{
+                                           await dbClient.rawQuery("delete from cart where id_produk = '"+dataCart[i]["id_produk"]+"'");
+                                            setState(()  {
+                                              
+                                            });
+                                        },
+                                        child: Icon(
+                                          Icons.delete_forever,
                                           color: Colors.white,
                                           size: 30,
                                         )),
@@ -235,7 +256,12 @@ Future<Column> getDataCart() async {
         padding: const EdgeInsets.only(left: 27,right: 27),
         child: RaisedButton(
               onPressed: (){
-
+                Navigator.push(
+                context,
+                  new MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        new CheckoutPage(),
+                ));
               },
               child: Text(
                 "Check Out".toUpperCase(),
