@@ -50,6 +50,13 @@ class ConfigClass {
   String checkout(){
     return getHostName()+"checkout";
   }
+  String invoiceList(){
+    return getHostName()+"checkout/invoiceList";
+  }
+  String getDashboard(){
+    return getHostName()+"member/dashboard";
+  }
+
   
   var loadingScreen = new ProgressHUD(
       backgroundColor: Colors.black12,

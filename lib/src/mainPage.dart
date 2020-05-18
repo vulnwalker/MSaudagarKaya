@@ -8,6 +8,7 @@ import 'dart:convert' as JSON;
 import 'package:SaudagarKaya/database/DatabaseHelper.dart';
 import 'package:SaudagarKaya/config.dart';
 import 'package:SaudagarKaya/utils/uidata.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainPage extends StatefulWidget {
   BuildContext context;
@@ -19,19 +20,31 @@ class MainPage extends StatefulWidget {
 
 class MainPageState extends State<MainPage> {
   Size deviceSize;
-  String emailMember = "vulnwalker@getnada.com",namaMember = "Dashboard",teleponMember = "081223744803",referalEmail = "admin@saudagarkaya.com";
+  
   int saldoMember;
+  int penjualanHariIni = 0;
+  int penjualanKemarin = 0;
   String jumlahPenukaran = "0";
   String jumlahAbsen = "0";
+  final TextStyle whiteText = TextStyle(color: Colors.white);
   ConfigClass configClass = new ConfigClass();
   var databaseHelper = new  DatabaseHelper() ;
+  SharedPreferences prefs;
 
- 
+
+  Future<String> getSession() async {
+    prefs = await SharedPreferences.getInstance();
+    return await http.post(configClass.memberCommision(), body: {"email" : prefs.getString('sessionEmail').toString()}).then((response) {
+          print(response.body);
+          return response.body;
+    });
+  }
   @override
   void initState() {
     super.initState();
     (() async {
         //  await getDataAccount();
+        prefs = await SharedPreferences.getInstance();
         setState(() {
         });
     })();
@@ -49,173 +62,320 @@ class MainPageState extends State<MainPage> {
     
   }
 
-   //Column1
-  Widget MainPageColumn() => Container(
-        height: deviceSize.height * 0.24,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ProfileTile(
-              title: namaMember,
-              subtitle: "",
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: <Widget>[
-      
-            //     Container(
-            //       decoration: BoxDecoration(
-            //         borderRadius:
-            //             new BorderRadius.all(new Radius.circular(50.0)),
-            //         border: new Border.all(
-            //           color: Colors.black,
-            //           width: 4.0,
-            //         ),
-            //       ),
-            //       child: CircleAvatar(
-            //         backgroundImage: AssetImage("assets/logo.png"),
-            //         backgroundColor: Colors.black,
-            //         foregroundColor: Colors.black,
-            //         radius: 40.0,
-            //       ),
-            //     ),
-            //     // IconButton(
-            //     //   icon: Icon(Icons.call),
-            //     //   color: Colors.black,
-            //     //   onPressed: () {},
-            //     // ),
-            //   ],
-            // )
-          ],
+  @override
+  Widget build(BuildContext context) {
+   
+    return FutureBuilder(
+          future: getSession(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+                var extractdata = JSON.jsonDecode(snapshot.data);
+                List dataResult;
+                dataResult = extractdata["result"];
+                return CommonScaffold(
+                appTitle: "Dashboard",
+                bodyData: _buildBody(context),
+                // showFAB: true,
+                showDrawer: true,
+                floatingIcon: Icons.edit,
+                eventFloatButton: (){
+                  Navigator.of(context).pushNamed(UIData.profileRoute);
+                },
+              );
+            } else {
+              return Center (
+                  child: CircularProgressIndicator()
+              );
+            }
+          },
+        );
+  }
+
+
+  Widget _buildBottomBar() {
+    return BottomNavigationBar(
+      selectedItemColor: Colors.grey.shade800,
+      unselectedItemColor: Colors.grey,
+      currentIndex: 0,
+      onTap: (i) {},
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text("Home"),
         ),
-      );
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_add),
+          title: Text("Refer"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.history),
+          title: Text("History"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline),
+          title: Text("Profile"),
+        ),
+      ],
+    );
+  }
 
-  //column2
-
-  //column3
-  Widget descColumn() => Container(
-        height: deviceSize.height * 0.13,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+  Widget _buildBody(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _buildHeader(),
+          const SizedBox(height: 20.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
             child: Text(
-              "Dashboard Aplikasi Saudagar Kaya !",
-              style: TextStyle(fontWeight: FontWeight.w700),
-              textAlign: TextAlign.center,
-              maxLines: 3,
-              softWrap: true,
+              "Sales",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
             ),
           ),
-        ),
-      );
-  //column4
-  Widget accountColumn() => Container(
-        height: deviceSize.height * 0.3,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Card(
+            elevation: 4.0,
+            color: Colors.white,
+            margin: const EdgeInsets.all(16.0),
+            child: Row(
               children: <Widget>[
-                ProfileTile(
-                  title: "Website",
-                  subtitle: "rm-rf.studio",
+                Expanded(
+                  child: ListTile(
+                    leading: Container(
+                      alignment: Alignment.bottomCenter,
+                      width: 45.0,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Container(
+                            height: 20,
+                            width: 8.0,
+                            color: Colors.grey.shade300,
+                          ),
+                          const SizedBox(width: 4.0),
+                          Container(
+                            height: 25,
+                            width: 8.0,
+                            color: Colors.grey.shade300,
+                          ),
+                          const SizedBox(width: 4.0),
+                          Container(
+                            height: 40,
+                            width: 8.0,
+                            color: Colors.blue,
+                          ),
+                          const SizedBox(width: 4.0),
+                          Container(
+                            height: 30,
+                            width: 8.0,
+                            color: Colors.grey.shade300,
+                          ),
+                        ],
+                      ),
+                    ),
+                    title: Text("Today"),
+                    subtitle: Text(penjualanHariIni.toString()+" sales"),
+                  ),
                 ),
-                ProfileTile(
-                  title: "Phone",
-                  subtitle: "+6281223744803",
-                ),
-                ProfileTile(
-                  title: "YouTube",
-                  subtitle: "youtube.com/vulnwalker",
+                VerticalDivider(),
+                Expanded(
+                  child: ListTile(
+                    leading: Container(
+                      alignment: Alignment.bottomCenter,
+                      width: 45.0,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Container(
+                            height: 20,
+                            width: 8.0,
+                            color: Colors.grey.shade300,
+                          ),
+                          const SizedBox(width: 4.0),
+                          Container(
+                            height: 25,
+                            width: 8.0,
+                            color: Colors.grey.shade300,
+                          ),
+                          const SizedBox(width: 4.0),
+                          Container(
+                            height: 40,
+                            width: 8.0,
+                            color: Colors.red,
+                          ),
+                          const SizedBox(width: 4.0),
+                          Container(
+                            height: 30,
+                            width: 8.0,
+                            color: Colors.grey.shade300,
+                          ),
+                        ],
+                      ),
+                    ),
+                    title: Text("Prev"),
+                    subtitle: Text(penjualanKemarin.toString()+" sales"),
+                  ),
                 ),
               ],
             ),
-           
-          ],
-        ),
-      );
-
-  Widget bodyData() { 
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          MainPageColumn(),
-          CommonDivider(),
-          // followColumn(deviceSize),
-          // CommonDivider(),
-          // infoColumn(deviceSize),
-          // CommonDivider(),
-          descColumn(),
-          CommonDivider(),
-          // accountColumn()
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: _buildTile(
+                    color: Colors.pink,
+                    icon: Icons.portrait,
+                    title: "Omset Hari ini",
+                    data: "1200",
+                  ),
+                ),
+                const SizedBox(width: 16.0),
+                Expanded(
+                  child: _buildTile(
+                    color: Colors.green,
+                    icon: Icons.portrait,
+                    title: "Profit",
+                    data: "857",
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: _buildTile(
+                    color: Colors.blue,
+                    icon: Icons.favorite,
+                    title: "Unpaid",
+                    data: "864",
+                  ),
+                ),
+                const SizedBox(width: 16.0),
+                Expanded(
+                  child: _buildTile(
+                    color: Colors.pink,
+                    icon: Icons.portrait,
+                    title: "Paid",
+                    data: "857",
+                  ),
+                ),
+                const SizedBox(width: 16.0),
+                Expanded(
+                  child: _buildTile(
+                    color: Colors.blue,
+                    icon: Icons.favorite,
+                    title: "Shiped",
+                    data: "698",
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20.0),
         ],
       ),
     );
   }
 
-  Widget _scaffold() => CommonScaffold(
-        appTitle: "Dashboard",
-        bodyData: bodyData(),
-        // showFAB: true,
-        showDrawer: true,
-        floatingIcon: Icons.edit,
-        eventFloatButton: (){
-          // AlertDialog dialog = new AlertDialog(
-          //               content: new Text("Reload Activity")
-          //             );
-          // showDialog(context: context,child: dialog);
-          Navigator.of(context).pushNamed(UIData.profileRoute);
-        },
-      );
-  Widget followColumn(Size deviceSize) => Container(
-      height: deviceSize.height * 0.13,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+  Container _buildHeader() {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(0, 50.0, 0, 32.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20.0),
+          bottomRight: Radius.circular(20.0),
+        ),
+        color: Colors.blue,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ProfileTile(
-            title: "Telepon",
-            subtitle: teleponMember.toString(),
+          ListTile(
+            title: Text(
+              "Dashboard",
+              style: whiteText.copyWith(
+                  fontWeight: FontWeight.bold, fontSize: 20.0),
+            ),
+            trailing: CircleAvatar(
+              radius: 25.0,
+              backgroundImage: NetworkImage(prefs.getString('sessionGambar').toString()),
+            ),
           ),
-          ProfileTile(
-            title: "Penukaran",
-            subtitle: jumlahPenukaran.toString(),
+          const SizedBox(height: 10.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Text(
+              prefs.getString('sessionNama').toString(),
+              style: whiteText.copyWith(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
-          ProfileTile(
-            title: "Absen",
-            subtitle: jumlahAbsen,
+          const SizedBox(height: 5.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Container(
+                padding: const EdgeInsets.all(8.0),
+                height: 40.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.0),
+                  color: Colors.orangeAccent,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      "PREMIUM",
+                      style:
+                          whiteText.copyWith(fontWeight: FontWeight.bold, fontSize: 20.0),
+                    ),
+                  ],
+                ),
+              ),
           ),
-       
         ],
       ),
     );
-  Widget infoColumn(Size deviceSize) => Container(
-      height: deviceSize.height * 0.13,
-      child: Row(
+  }
+
+  Container _buildTile(
+      {Color color, IconData icon, String title, String data}) {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      height: 150.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4.0),
+        color: color,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          ProfileTile(
-            title: "Point",
-            subtitle: saldoMember.toString(),
+          Icon(
+            icon,
+            color: Colors.white,
           ),
-          ProfileTile(
-            title: "Referal",
-            subtitle: referalEmail.toString(),
+          Text(
+            title,
+            style: whiteText.copyWith(fontWeight: FontWeight.bold),
           ),
-
-       
+          Text(
+            data,
+            style:
+                whiteText.copyWith(fontWeight: FontWeight.bold, fontSize: 20.0),
+          ),
         ],
       ),
     );
-
-  @override
-  Widget build(BuildContext context) {
-    // getDataAccount();
-    deviceSize = MediaQuery.of(context).size;
-    return _scaffold();
   }
 
 }

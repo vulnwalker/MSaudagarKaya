@@ -22,6 +22,7 @@ class _CheckRouteState extends State<CheckRoute> {
     List<Map> list = await dbClient.rawQuery('SELECT * FROM tabel_account');
     emailMember = list[0]["email"];
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    
     prefs.setString('sessionEmail',emailMember);
   }
   @override
@@ -41,26 +42,13 @@ class _CheckRouteState extends State<CheckRoute> {
         emailMember = list[0]["email"];
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('sessionEmail',emailMember);
-        //  await http.post(configClass.syncData(), body: {"email":emailMember}).then((response) {
-        //         // databaseHelper.deleteAccount();
-        //         var extractdata = JSON.jsonDecode(response.body);
-        //         List dataResult;
-        //         List dataContent;
-        //         dataResult = extractdata["result"];
-        //         dataContent = dataResult[0]["content"];
-        //         // var dataAccount = new Account(
-        //         //   emailMember,
-        //         //   dataContent[0]["password"],
-        //         //   dataContent[0]["nama"],
-        //         //   dataContent[0]["nomor_telepon"],
-        //         //   int.tryParse( dataContent[0]["saldo"]),
-        //         //   1,
-        //         // );
-        //         // databaseHelper.updateAccount(dataAccount);
-        //         Navigator.of(context).pushReplacementNamed("mainPage");
-
-                
-        //   });
+        await http.post(configClass.profile(), body: {"email" : emailMember}).then((response) {
+          var extractdata = JSON.jsonDecode(response.body);
+          List dataResult;
+          dataResult = extractdata["result"];
+          prefs.setString('sessionNama',dataResult[0]["content"][0]['nama'].toString());
+          prefs.setString('sessionGambar',dataResult[0]["content"][0]['foto'].toString());
+        });
        
       }
     })();

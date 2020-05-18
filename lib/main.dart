@@ -2,6 +2,7 @@ import 'package:SaudagarKaya/CheckRoute.dart';
 import 'package:SaudagarKaya/src/fragment/cartPage.dart';
 import 'package:SaudagarKaya/src/fragment/checkoutPage.dart';
 import 'package:SaudagarKaya/src/fragment/copyWiritingPage.dart';
+import 'package:SaudagarKaya/src/fragment/invoicePage.dart';
 import 'package:SaudagarKaya/src/fragment/kotak.dart';
 import 'package:SaudagarKaya/src/fragment/leadPage.dart';
 import 'package:SaudagarKaya/src/fragment/memberShipPage.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         "kotak": (BuildContext context) => ShoppingWidgets(),
         "cartPage": (BuildContext context) => CartPage(),
         "checkoutPage": (BuildContext context) => CheckoutPage(),
+        "invoicePage": (BuildContext context) => InvoicePage(),
       },
     );
   }

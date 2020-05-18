@@ -3,6 +3,7 @@
 import 'package:SaudagarKaya/config.dart';
 import 'package:SaudagarKaya/database/DatabaseHelper.dart';
 import 'package:SaudagarKaya/ui/widgets/common_scaffold.dart';
+import 'package:SaudagarKaya/utils/alert_dialog.dart';
 
   
 import 'package:flutter/material.dart';
@@ -442,41 +443,64 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 child: RaisedButton(
                   color: Theme.of(context).primaryColor,
                   onPressed: () async {
+                    if(emailPembeli == '' || emailMember.isEmpty){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Isi Email");
+                    }else if(provinsiSelected == '' || provinsiSelected == null){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Pilih Provinsi");
+                    }else if(kotaSelected == '' || kotaSelected == null){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Pilih Kota");
+                    }else if(alamatPengiriman == '' ){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Isi Alamat");
+                    }else if(namaPembeli == ''){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Isi Nama Pembeli");
+                    }else if(nomorTelepon == ''){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Isi Nomor Telepon");
+                    }else if(kecamatanPembeli == ''){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Isi Kecamatan");
+                    }else if(kodePos== ''){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Isi Kode Pos");
+                    }else if(jasaExpedisi.toString() == '' || jasaExpedisi == null){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Pilih Expedisi");
+                    }else if(serviceSelected.toString() == '' || serviceSelected == null){
+                      _customAlertDialog(context, AlertDialogType.ERROR, "Error","Pilih Service Pengiriman");
+                    }else{
+                      configClass.showLoading(context);
+                      var dbClient = await db.db;
+                      List<Map> listCart = await dbClient.rawQuery("select * from cart");
+                      await http.post(configClass.checkout(), body: {
+                        "email" : emailMember,
+                        "idProvinsi" : provinsiSelected, 
+                        "idKota" : kotaSelected, 
+                        "ongkir" : costOngkir.toString(),
+                        "subTotal" : subTotal.toString(),
+                        "alamatPengiriman" :alamatPengiriman,
+                        "nomorTelepon" :nomorTelepon, 
+                        "namaPembeli" :namaPembeli, 
+                        "emailPembeli" :emailPembeli, 
+                        "keterangan" :keterangan, 
+                        "kecamatanPembeli" :kecamatanPembeli, 
+                        "kodePos" :kodePos, 
+                        "expedisiPengiriman" : jasaExpedisi.toString(), 
+                        "servicePengiriman" : serviceSelected.toString(), 
+                        "jsonProvinsiPengiriman" : stringJsonProvinsi.toString(), 
+                        "jsonKotaPengiriman" : stringJsonKota.toString(), 
+                        "jsonServicePengiriman" : stringJsonService.toString(), 
+                        "cart" : JSON.jsonEncode(listCart), 
+                        }).then((response) {
+                        configClass.closeLoading(context);
+                        _customAlertDialog(context, AlertDialogType.SUCCESS, "Order Sukses","Pembelian anda akan segera kamis proses");
+                        // print(response.body);
+                        var extractdata = JSON.jsonDecode(response.body);
+                        List dataResult;
+                        dataResult = extractdata["result"];
+                        dbClient.rawQuery("delete from cart");
+                        Navigator.of(context).pushReplacementNamed("mainPage");
+                        launch("https://saudagarkaya.com/payment/"+dataResult[0]["content"]["idTransaksi"]);
 
-                    configClass.showLoading(context);
-                    var dbClient = await db.db;
-                    List<Map> listCart = await dbClient.rawQuery("select * from cart");
-                    await http.post(configClass.checkout(), body: {
-                      "email" : emailMember,
-                      "idProvinsi" : provinsiSelected, 
-                      "idKota" : kotaSelected, 
-                      "ongkir" : costOngkir.toString(),
-                      "subTotal" : subTotal.toString(),
-                      "alamatPengiriman" :alamatPengiriman,
-                      "nomorTelepon" :nomorTelepon, 
-                      "namaPembeli" :namaPembeli, 
-                      "emailPembeli" :emailPembeli, 
-                      "keterangan" :keterangan, 
-                      "kecamatanPembeli" :kecamatanPembeli, 
-                      "kodePos" :kodePos, 
-                      "expedisiPengiriman" : jasaExpedisi.toString(), 
-                      "servicePengiriman" : serviceSelected.toString(), 
-                      "jsonProvinsiPengiriman" : stringJsonProvinsi.toString(), 
-                      "jsonKotaPengiriman" : stringJsonKota.toString(), 
-                      "jsonServicePengiriman" : stringJsonService.toString(), 
-                      "cart" : JSON.jsonEncode(listCart), 
-                      }).then((response) {
-                      configClass.closeLoading(context);
-                      // print(response.body);
-                      var extractdata = JSON.jsonDecode(response.body);
-                      List dataResult;
-                      dataResult = extractdata["result"];
-                      dbClient.rawQuery("delete from cart");
-                      Navigator.of(context).pushReplacementNamed("mainPage");
-                      launch("https://saudagarkaya.com/payment/"+dataResult[0]["content"]["idTransaksi"]);
-
-                      print(dataResult[0]["content"]["idTransaksi"]);
-                    });
+                        print(dataResult[0]["content"]["idTransaksi"]);
+                      });
+                    } 
+                    
                   },
                   child: Text("Confirm Order", style: TextStyle(
                     color: Colors.white
@@ -485,6 +509,18 @@ class _CheckoutPageState extends State<CheckoutPage> {
               )
             ]
         )
+    );
+  }
+  _customAlertDialog(BuildContext context, AlertDialogType type, String titleAlert,String descAlert) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomAlertDialog(
+          type: type,
+          title: titleAlert,
+          content: descAlert,
+        );
+      },
     );
   }
 }

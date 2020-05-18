@@ -1,147 +1,203 @@
 import 'package:SaudagarKaya/database/DatabaseHelper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:SaudagarKaya/ui/widgets/about_tile.dart';
 import 'package:SaudagarKaya/utils/uidata.dart';
 import 'package:flushbar/flushbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CommonDrawer extends StatelessWidget {
   var databaseHelper = new  DatabaseHelper() ;
+  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+  final Color primary = Colors.white;
+  final Color active = Colors.grey.shade800;
+  final Color divider = Colors.grey.shade600;
+  var context ;
+  SharedPreferences prefs;
+  Future<String> getSession() async {
+    prefs = await SharedPreferences.getInstance();
+    return prefs.getString('sessionEmail').toString();
+  }
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context2) {
     int _act = 2;
-    return Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            SizedBox(
-              height : 120.0, 
-              child  : new DrawerHeader(
-                  child  : Image.asset(
-                    'assets/images/logo.png',
-                    width: 300.0,
-                    height: 30.0,
-                    // fit: BoxFit.cover,
+    context = context2;
+
+    return FutureBuilder(
+              future: getSession(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                   return _buildDrawer();
+                } else {
+                  return Center (
+                      child: CircularProgressIndicator()
+                  );
+                }
+              },
+            );
+  }
+  Widget _buildRow(IconData icon, String title, String callToAction, {bool showBadge = false}) {
+    final TextStyle tStyle = TextStyle(color: active, fontSize: 16.0);
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: 
+      InkWell(
+      onTap: () {
+        Navigator.of(context).pushReplacementNamed(callToAction);
+      },
+      child:Row(
+                children: [
+                Icon(
+                  icon,
+                  color: active,
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  title,
+                  style: tStyle,
+                ),
+                Spacer(),
+                if (showBadge)
+                  Material(
+                    color: Colors.deepOrange,
+                    elevation: 5.0,
+                    shadowColor: Colors.red,
+                    borderRadius: BorderRadius.circular(5.0),
+                    child: Container(
+                      width: 25,
+                      height: 25,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.deepOrange,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Text(
+                        "10+",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  )
+              ]),
+      )
+      
+    );
+  }
+  Divider _buildDivider() {
+    return Divider(
+      color: divider,
+    );
+  }
+
+  _buildDrawer()  {
+    // final String image = images[0];
+
+    return ClipPath(
+      clipper: OvalRightBorderClipper(),
+      child: Drawer(
+        child: Container(
+          padding: const EdgeInsets.only(left: 16.0, right: 40),
+          decoration: BoxDecoration(
+              color: primary, boxShadow: [BoxShadow(color: Colors.black45)]),
+          width: 300,
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.power_settings_new,
+                        color: active,
+                      ),
+                      onPressed: () {
+                        var databaseHelper = new  DatabaseHelper() ;
+                        databaseHelper.deleteAccount();
+                        Navigator.pushReplacementNamed(context, "login");
+                      },
+                    ),
                   ),
-                  decoration: new BoxDecoration(color: Colors.black),
-                  margin : EdgeInsets.zero,
-                  padding: EdgeInsets.zero
+                  Container(
+                    height: 90,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                            colors: [Colors.orange, Colors.deepOrange])),
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(prefs.getString('sessionGambar').toString()),
+         
+                      // backgroundImage: CachedNetworkImageProvider(image),
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
+                  Text(
+                    prefs.getString('sessionNama').toString(),
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    prefs.getString('sessionEmail').toString(),
+                    style: TextStyle(color: active, fontSize: 16.0),
+                  ),
+                  SizedBox(height: 30.0),
+                  _buildRow(Icons.dashboard, "Dashboard","mainPage"),
+                  _buildDivider(),
+                  _buildRow(Icons.traffic, "Trafic",""),
+                  // _buildRow(Icons.notifications, "Notifications",showBadge: true),
+                  _buildDivider(),
+                  _buildRow(Icons.person, "Profile","profile"),
+                  _buildDivider(),
+                  _buildRow(Icons.group_work, "My Leads","leadPage"),
+                  _buildDivider(),
+                  _buildRow(Icons.card_membership, "Membership","membership"),
+                  _buildDivider(),
+                  _buildRow(Icons.watch, "Training","membership"),
+                  _buildDivider(),
+                  _buildRow(Icons.pages, "Copywriting","copyWritingPage"),
+                  _buildDivider(),
+                  _buildRow(Icons.shop, "Shop","produkPage"),
+                  _buildDivider(),
+                  _buildRow(Icons.payment, "Invoice","invoicePage"),
+                  _buildDivider(),
+                ],
               ),
             ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.dashboard),
-                  title: Text('Dashboard'),
-                  subtitle: _act != 2 ? Text('Dashboard') : null,
-                  enabled: _act == 2,
-                  onTap: () { 
-                    Navigator.of(context).pushReplacementNamed("mainPage");
-                    
-                  }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.traffic),
-                  title: Text('Trafic'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () {
-                     Navigator.of(context).pushReplacementNamed("cartPage");
-                      // Flushbar(
-                      // title:  "Trafic",
-                      // message:  "Trafic Clicked",
-                      // duration:  Duration(seconds: 3),              
-                      // )   ..show(context);
-                   }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text('Profile'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { 
-                    Navigator.of(context).pushReplacementNamed("profile");
-                  }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.group_work),
-                  title: Text('My Leads'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { Navigator.of(context).pushReplacementNamed("leadPage"); }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.card_membership),
-                  title: Text('Membership'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { 
-                    Navigator.of(context).pushReplacementNamed("membership");
-                   }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.watch),
-                  title: Text('Training'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.pages),
-                  title: Text('Copywriting'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { 
-                     Navigator.of(context).pushReplacementNamed("copyWritingPage");
-                   }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.shop),
-                  title: Text('Shop'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { Navigator.of(context).pushReplacementNamed("produkPage");}
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.payment),
-                  title: Text('Invoice'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { /* react to the tile being tapped */ }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  leading: Icon(Icons.power_settings_new),
-                  title: Text('Logout'),
-                  subtitle: _act != 2 ? Text('The airplane is only in Act II.') : null,
-                  enabled: _act == 2,
-                  onTap: () { 
-                    var databaseHelper = new  DatabaseHelper() ;
-                    databaseHelper.deleteAccount();
-                    Navigator.pushReplacementNamed(context, "login");
-                  }
-              ),
-            ),
-           
-            
-            
-          ],
+          ),
         ),
-      );
+      ),
+    );
+  }
+}
+
+
+
+
+
+//extended class 
+
+class OvalRightBorderClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, 0);
+    path.lineTo(size.width-40, 0);
+    path.quadraticBezierTo(
+        size.width, size.height / 4, size.width, size.height/2);
+    path.quadraticBezierTo(
+        size.width, size.height - (size.height / 4), size.width-40, size.height);
+    path.lineTo(0, size.height);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }
