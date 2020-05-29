@@ -1,4 +1,4 @@
-#Tue May 19 06:29:09 WIB 2020
+#Fri May 29 11:02:38 WIB 2020
 base.1=/home/kszxpo/MOBILE/saudagarkaya/build/app/intermediates/dex/debug/mergeDexDebug/out/classes2.dex
 path.1=classes2.dex
 base.0=/home/kszxpo/MOBILE/saudagarkaya/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
