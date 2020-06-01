@@ -29,6 +29,9 @@ class ConfigClass {
   String leadList(){
     return getHostName()+"leads";
   }
+  String trainingList(){
+    return getHostName()+"training";
+  }
   String register(){
     return getHostName()+"member/add";
   }

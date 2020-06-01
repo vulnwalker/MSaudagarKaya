@@ -8,6 +8,7 @@ import 'package:SaudagarKaya/src/fragment/leadPage.dart';
 import 'package:SaudagarKaya/src/fragment/memberShipPage.dart';
 import 'package:SaudagarKaya/src/fragment/produkPage.dart';
 import 'package:SaudagarKaya/src/fragment/leadPage.dart';
+import 'package:SaudagarKaya/src/fragment/trainingPage.dart';
 import 'package:SaudagarKaya/src/loginPage.dart';
 import 'package:SaudagarKaya/src/mainPage.dart';
 import 'package:SaudagarKaya/src/signup.dart';
@@ -43,11 +44,12 @@ class MyApp extends StatelessWidget {
         "welcomePage": (BuildContext context) => WelcomePage(),
         "produkPage": (BuildContext context) => ProdukPage(),
         "copyWritingPage": (BuildContext context) => CopyWriting(),
-        "leadPage": (BuildContext context) => Lead(),
+        "leadPage": (BuildContext context) => LeadPage(),
         "kotak": (BuildContext context) => ShoppingWidgets(),
         "cartPage": (BuildContext context) => CartPage(),
         "checkoutPage": (BuildContext context) => CheckoutPage(),
         "invoicePage": (BuildContext context) => InvoicePage(),
+        "trainingPage": (BuildContext context) => TrainingPage(),
       },
     );
   }

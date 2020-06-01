@@ -158,7 +158,7 @@ class CommonDrawer extends StatelessWidget {
                   _buildDivider(),
                   _buildRow(Icons.card_membership, "Membership","membership"),
                   _buildDivider(),
-                  _buildRow(Icons.watch, "Training","membership"),
+                  _buildRow(Icons.watch, "Training","trainingPage"),
                   _buildDivider(),
                   _buildRow(Icons.pages, "Copywriting","copyWritingPage"),
                   _buildDivider(),
