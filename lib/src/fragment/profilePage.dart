@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:SaudagarKaya/ui/widgets/common_divider.dart';
 import 'package:SaudagarKaya/ui/widgets/common_scaffold.dart';
@@ -175,72 +176,215 @@ class ProfileState extends State<Profile> {
 
   Widget bodyData() { 
     int _act = 2;
+    TextStyle whiteText = TextStyle(color: Colors.white);
+    var warnaStatus = Colors.orangeAccent;
+    if(lisensi == "FREE"){
+      warnaStatus = Colors.orangeAccent;
+    }else {
+      warnaStatus = Colors.greenAccent;
+    }
+  
     return SingleChildScrollView(
+      
+      child:  
+              Stack(
+                children: <Widget>[
+                  Container(
+                    width: double.infinity,
+                    height: 330,
+                    color: Colors.deepOrange,
+                  ),
+                  Positioned(
+                    top: 10,
+                    right: 30,
+                    child: Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        height: 90,
+                        margin: EdgeInsets.only(top: 60),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: CachedNetworkImage(
+                              imageUrl: foto,
+                              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                              // errorWidget: (context, url, error) => Image.asset('assets/placeholder.jpg',fit: BoxFit.cover,),
+                              fit: BoxFit.cover,
+                              // width: 40,
+                              // height: 40,
+                            )
+                    ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(4),
+                      ),
+                      Text(
+                        namaMember,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20),
+                        textAlign: TextAlign.center,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(4),
+                      ),
+                      Container(
+                              padding: const EdgeInsets.all(4.0),
+                              height: 20.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4.0),
+                                color: warnaStatus
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  Text(
+                                    lisensi,
+                                    style:
+                                        whiteText.copyWith(fontWeight: FontWeight.bold, fontSize: 10.0),
+                                  ),
+                                ],
+                              ),
+                            ),
+                      Container(
+                        margin: EdgeInsets.only(top: 77),
+                        padding: EdgeInsets.all(10),
+                        child: Card(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(top: 15, bottom: 5),
+                                      child: Text("Photos",
+                                          style: TextStyle(
+                                              color: Colors.black54))),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 15),
+                                      child: Text("5,000",
+                                          style: TextStyle(
+                                              color: Colors.black87,
+                                              fontSize: 16))),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(top: 15, bottom: 5),
+                                      child: Text("Followers",
+                                          style: TextStyle(
+                                              color: Colors.black54))),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 15),
+                                      child: Text("5,000",
+                                          style: TextStyle(
+                                              color: Colors.black87,
+                                              fontSize: 16))),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(top: 10, bottom: 5),
+                                      child: Text("Followings",
+                                          style: TextStyle(
+                                              color: Colors.black54))),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 10),
+                                      child: Text("5,000",
+                                          style: TextStyle(
+                                              color: Colors.black87,
+                                              fontSize: 16))),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+      padding: EdgeInsets.all(10),
       child: Column(
         children: <Widget>[
-          profileColumn(),
           Card(
-            child: ListTile(
-                leading: Icon(Icons.email),
-                title: Text(emailMember),
-                subtitle: _act != 2 ? Text('EMAIL.') : null,
-                enabled: _act == 2,
-                // onTap: () { 
-                //   Navigator.of(context).pushReplacementNamed("profile");
-                // }
+            child: Container(
+              alignment: Alignment.topLeft,
+              padding: EdgeInsets.all(15),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "User Information",
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Divider(
+                    color: Colors.black38,
+                  ),
+                  Container(
+                      child: Column(
+                    children: <Widget>[
+                      // ListTile(
+                      //   contentPadding:
+                      //       EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                      //   leading: Icon(Icons.my_location),
+                      //   title: Text("Location"),
+                      //   subtitle: Text("Kathmandu"),
+                      // ),
+                      ListTile(
+                        leading: Icon(Icons.email),
+                        title: Text("Email"),
+                        subtitle: Text(emailMember),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.phone),
+                        title: Text("Phone"),
+                        subtitle: Text(teleponMember),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.local_atm),
+                        title: Text("Bank"),
+                        subtitle: Text(nama_bank + " " +nomor_rekening + " a/n "+ nama_rekening),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.group),
+                        title: Text("Referal"),
+                        subtitle: Text(referalEmail),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.home),
+                        title: Text("Alamat"),
+                        subtitle: Text(alamatMember),
+                      ),
+                    ],
+                  ))
+                ],
+              ),
             ),
-          ),
-          Card(
-            child: ListTile(
-                leading: Icon(Icons.phone_android),
-                title: Text(teleponMember),
-                subtitle: _act != 2 ? Text('PHONE.') : null,
-                enabled: _act == 2,
-                // onTap: () { 
-                //   Navigator.of(context).pushReplacementNamed("profile");
-                // }
-            ),
-          ),
-          Card(
-            child: ListTile(
-                leading: Icon(Icons.local_atm),
-                title: Text(nama_bank + " " +nomor_rekening + " a/n "+ nama_rekening ),
-                subtitle: _act != 2 ? Text('BANK.') : null,
-                enabled: _act == 2,
-                // onTap: () { 
-                //   Navigator.of(context).pushReplacementNamed("profile");
-                // }
-            ),
-          ),
-          Card(
-            child: ListTile(
-                leading: Icon(Icons.home),
-                title: Text(alamatMember ),
-                subtitle: _act != 2 ? Text('Alamat.') : null,
-                enabled: _act == 2,
-                // onTap: () { 
-                //   Navigator.of(context).pushReplacementNamed("profile");
-                // }
-            ),
-          ),
-          Card(
-            child: ListTile(
-                leading: Icon(Icons.group),
-                title: Text(referalEmail ),
-                subtitle: _act != 2 ? Text('Referal.') : null,
-                enabled: _act == 2,
-                // onTap: () { 
-                //   Navigator.of(context).pushReplacementNamed("profile");
-                // }
-            ),
-          ),
-
-          CommonDivider(),
-          // descColumn(),
-          CommonDivider(),
-          // accountColumn()
+          )
         ],
       ),
+    )
+                    ],
+                  )
+                ],
+              ),
+         
     );
   }
 

@@ -335,7 +335,7 @@ class ItemCard extends StatelessWidget {
                                     alignment: Alignment.centerRight,
                                     child: Container(
                                       child: Text(
-                                          "#"+item.id+ " || NO."+item.nomorUrut.toString(),
+                                          "#"+item.id,
                                           textAlign: TextAlign.right,
                                         ),
                                       ),
